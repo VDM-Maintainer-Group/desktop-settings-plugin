@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 from abc import ABC, abstractmethod
-from email.policy import default
 import re
 import dbus
 import subprocess as sp
-from pathlib import Path
 from itertools import cycle
 
 __all__ = ['PulseAudio']
