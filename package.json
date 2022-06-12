@@ -1,0 +1,26 @@
+{
+  "name": "desktop-settings",
+  "version": "0.1.0",
+  "description": "VDM plugin for bridging gap of desktop-related settings for common DEs.",
+  "keywords": [
+    "desktop", "dde-kwin", "gnome-shell"
+  ],
+  "author": "Mark Hong",
+  "license": "GPL-3.0",
+
+  "main": "settings.py",
+  "capability": [],
+  "scripts": {
+    "pre-install": "mkdir release; mv *.py release; mv utils release",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "homepage": "https://github.com/VDM-Maintainer-Group/desktop-settings-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VDM-Maintainer-Group/desktop-settings-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VDM-Maintainer-Group/desktop-settings-plugin/issues"
+  }
+}
