@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 from abc import ABC, abstractmethod
-import os
 import dbus
 import shutil
 import subprocess as sp
 
-__all__ = ['UbuntuGnome']
+__all__ = ['GnomeShell']
 
 SHELL_RUN = lambda cmd: sp.run(cmd, stdout=sp.PIPE, stderr=sp.PIPE, shell=True, check=True)
 
@@ -23,11 +22,20 @@ class WallpaperSettings(ABC):
     def set_wallpaper_status(self, status):
         pass
 
-class UbuntuGnome(ABC):
+    def get_all_status(self):
+        return self.get_wallpaper_status()
+
+    def set_all_status(self, status):
+        return self.set_wallpaper_status
+
+    pass
+
+class GnomeShell(WallpaperSettings):
     @staticmethod
     def exists() -> bool:
         try:
-            gnome_flag = 'GNOME' in os.environ['XDG_CURRENT_DESKTOP']
+            sess = dbus.SessionBus()
+            gnome_flag = 'org.gnome.Shell' in sess.list_names()
             gsettings_flag = shutil.which('gsettings') is not None
             return (gnome_flag and gsettings_flag)
         except:
@@ -52,8 +60,8 @@ class UbuntuGnome(ABC):
 if __name__=='__main__':
     import json
     
-    settings = UbuntuGnome()
-    _record = settings.get_wallpaper_status()
+    settings = GnomeShell()
+    _record = settings.get_all_status()
     print( json.dumps(_record, indent=4) )
 
-    settings.set_wallpaper_status( _record )
+    settings.set_all_status( _record )

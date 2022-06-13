@@ -35,7 +35,7 @@ class AudioSettings(ABC):
     def set_sink_status(self, sink_name:str, sink_status):
         pass
 
-    def get_all_sink_status(self) -> dict:
+    def get_all_status(self) -> dict:
         sinks = dict()
         sink_names = self.get_sink_names()
         for name in sink_names:
@@ -47,7 +47,7 @@ class AudioSettings(ABC):
         record = {'default':default, 'sinks':sinks}
         return record
 
-    def set_all_sink_status(self, record:dict):
+    def set_all_status(self, record:dict):
         sink_names = self.get_sink_names()
         for name,status in record['sinks'].items():
             if name in sink_names:
@@ -62,7 +62,7 @@ class PulseAudio(AudioSettings):
     @staticmethod
     def exists() -> bool:
         sess = dbus.SessionBus()
-        flag = 'org.PulseAudio.Server' in sess.list_names()
+        flag = 'org.pulseaudio.Server' in sess.list_names()
         return flag
     
     @staticmethod
@@ -166,7 +166,7 @@ if __name__=='__main__':
     import json
     
     settings = PulseAudio()
-    _record = settings.get_all_sink_status()
+    _record = settings.get_all_status()
     print( json.dumps(_record, indent=4) )
 
-    settings.set_all_sink_status( _record )
+    settings.set_all_status( _record )

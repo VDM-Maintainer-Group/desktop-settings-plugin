@@ -35,7 +35,7 @@ class NetworkSettings(ABC):
                 return False
         return True
 
-    def get_all_device_status(self) -> dict:
+    def get_all_status(self) -> dict:
         record = dict()
         device_names = self.get_device_names()
         for name in device_names:
@@ -45,8 +45,8 @@ class NetworkSettings(ABC):
         ##
         return record
 
-    def set_all_device_status(self, record:dict):
-        current_status = self.get_all_device_status()
+    def set_all_status(self, record:dict):
+        current_status = self.get_all_status()
         ##
         device_names = self.get_device_names()
         for name,status in record.items():
@@ -119,7 +119,7 @@ if __name__=='__main__':
     import json
     
     settings = NetworkManager()
-    _record = settings.get_all_device_status()
+    _record = settings.get_all_status()
     print( json.dumps(_record, indent=4) )
 
-    settings.set_all_device_status( _record )
+    settings.set_all_status( _record )
