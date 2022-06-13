@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os, time, json, dbus
-from re import L
 import subprocess as sp
 from pathlib import Path
 
