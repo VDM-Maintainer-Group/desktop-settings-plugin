@@ -11,7 +11,7 @@
   "main": "settings.py",
   "capability": [],
   "scripts": {
-    "pre-install": "mkdir release; mv *.py release; mv utils release",
+    "pre-install": "mkdir release; mv *.py release; mv settings_utils release",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 

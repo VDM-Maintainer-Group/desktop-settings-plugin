@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import os, time, json, dbus
 
-from utils import audio, network, wallpaper
+from settings_utils import audio, network, wallpaper
 from pyvdm.interface import CapabilityLibrary, SRC_API
 
 DBG = 1
