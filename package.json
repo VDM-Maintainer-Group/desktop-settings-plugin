@@ -1,6 +1,6 @@
 {
   "name": "desktop-settings",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "VDM plugin for bridging gap of desktop-related settings for common DEs.",
   "keywords": [
     "desktop", "dde-kwin", "gnome-shell"
@@ -11,7 +11,7 @@
   "main": "settings.py",
   "capability": [],
   "scripts": {
-    "pre-install": "mkdir release; mv *.py release; mv utils release",
+    "pre-install": "mkdir release; mv *.py release; mv settings_utils release",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 

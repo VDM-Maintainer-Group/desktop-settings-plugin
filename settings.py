@@ -1,14 +1,10 @@
 #!/usr/bin/env python3
 import os, time, json, dbus
-from re import L
-import subprocess as sp
-from pathlib import Path
 
-from utils import audio, network, wallpaper
+from settings_utils import audio, network, wallpaper
 from pyvdm.interface import CapabilityLibrary, SRC_API
 
 DBG = 1
-SLOT = 0.40
 
 class DesktopSettings(SRC_API):
 
@@ -36,7 +32,7 @@ class DesktopSettings(SRC_API):
 
     def _resume_status(self, records):
         for name,status in records.items():
-            if name in self.settings:
+            if name in self.settings and self.settings[name] is not None:
                 self.settings[name].set_all_status(status)
         pass
 
