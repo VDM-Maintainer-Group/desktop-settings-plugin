@@ -26,7 +26,7 @@ class WallpaperSettings(ABC):
         return self.get_wallpaper_status()
 
     def set_all_status(self, status):
-        return self.set_wallpaper_status
+        return self.set_wallpaper_status(status)
 
     pass
 
