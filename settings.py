@@ -52,7 +52,7 @@ class DesktopSettings(SRC_API):
             json.dump(records, f)
         return 0
 
-    def onResume(self, stat_file):
+    def onResume(self, stat_file, new):
         ## load stat file with failure check
         with open(stat_file, 'r') as f:
             _file = f.read().strip()
