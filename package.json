@@ -1,6 +1,6 @@
 {
   "name": "desktop-settings",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "VDM plugin for bridging gap of desktop-related settings for common DEs.",
   "keywords": [
     "desktop", "dde-kwin", "gnome-shell"
